@@ -362,6 +362,7 @@ body > footer a:hover img {
     right: 0;
     bottom: -30px;
   }
+
 }
 
 /* Article - Used for both docs and news */
@@ -384,7 +385,7 @@ article {
 
 @media (max-width: 568px){
   article {
-    margin: 0;
+    margin: 10px 5px 30px 5px;
   }
 }
 
