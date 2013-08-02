@@ -12,7 +12,7 @@ jekyll真的是太棒了,特别是代码显示部分,我指的是jekyll官网的
 
 放弃自己写博客生成是因为已经开始工作,这些东西看起来有点幼稚,而且不再有大量的时间放在自己的兴趣上了.需要赶紧补一下C语言.
 
-挑选更纯粹的工具,才能更加高效.下面是学习jekyll的心得, 好的话以后就不折腾博客了..
+挑选更纯粹的工具,才能更加高效.下面是学习jekyll的心得, 好的话以后就不自己折腾博客了..
 
 文件夹结构
 -------
@@ -124,7 +124,7 @@ categories:
 
 ```javascript
 var code = '%'.charCodeAt(0); // 就能获取%的ascii次序
-// html编码就是&# + code + ';'
+// html编码就是'&#' + code + ';'
 ```
 所以如果修改文章导致jekyll编译不过， 那原因基本就是模板编译错误
 
@@ -154,23 +154,23 @@ jekyll提供的默认变量很多
 
 貌似中文叫页码.其中提供了获取上一篇 和 下一篇的功能
 
-- paginator.per_page
+- `paginator.per_page`
 
-- paginator.posts
+- `paginator.posts`
 
-- paginator.total_posts
+- `paginator.total_posts`
 
-- paginator.total_pages
+- `paginator.total_pages`
 
-- paginator.page
+- `paginator.page`
 
-- paginator.previous_page: 上一页
+- `paginator.previous_page`: 上一页
 
-- paginator.previous_page_path: 上一页路径
+- `paginator.previous_page_path`: 上一页路径
 
-- paginator.next_page: 下一页
+- `paginator.next_page`: 下一页
 
-- paginator.next_page_path: 下一页路径
+- `paginator.next_page_path`: 下一页路径
 
 注意, 这个paginator只能在index文件中使用, 坑爹啊.
 
@@ -182,14 +182,8 @@ paginate: 5
 
 那就是5篇文章一页.
 
-上一篇和下一篇分别是用`page.preivous.url` 和 `page.next.url`获取的.
+上一篇和下一篇的路径分别是用`page.preivous.url` 和 `page.next.url`获取的.
 
 jekyll的文档中貌似并没有说这俩个page的自属性.
 
 暂时就看到这些文档, 感觉够用了, 剩下的就是继续去了解一下那个模板了.
-
-
-
-
-
-
