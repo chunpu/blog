@@ -1,7 +1,7 @@
 ---
-tags: jekyll
-date: 22:36 2013/8/1
+layout: post
 title: jekyll学习
+tags: jekyll github markdown
 ---
 
 jekyll真的是太棒了,特别是代码显示部分,我指的是jekyll官网的css效果,我直接复制粘贴了他的css文件.
@@ -74,6 +74,7 @@ front-matter
 ---
 layout: post
 title: Blogging Like a Hacker
+---
 ```
 
 这种放在最前的博客信息我一看就明白,因为我已经也是这样做的,原因是因为单靠ctime,mtime啊来判断时间并不靠谱.
@@ -115,9 +116,23 @@ categories:
 -----
 
 文章模板是用一个叫Liquid template language做的,初步看来这不是一个全功能模板.不过语法属于大众语法,
-`{{ xxx  }}`表示插入, `{% some code %}`表示执行.没有太多学习成本.
+{&#123; page.title &#125;}表示插入, {&#37; some code &#37;}表示执行.没有太多学习成本.
 
-提供的默认变量很多
+> 注意我第一次提交的时候发现github，没有更新文章，我还以为是github不自动更新呢， 后来才知道模板没有编译通过
+原因是我在文章中加入了{&#37; &#37;}, 这即便包含在反义符中都是没用的，因为模板解析在markdown解析之前，我只所以能打出来，
+是因为我输入的是`{&#37; &#37;}`, 用的html编码。html编码很简单，在chrome的调试里直接输入
+
+```javascript
+var code = '%'.charCodeAt(0); // 就能获取%的ascii次序
+// html编码就是&# + code + ';'
+```
+所以如果修改文章导致jekyll编译不过， 那原因基本就是模板编译错误
+
+> {&#123; &#125;} 字符串插入不会导致模板编译错误，没有的话只会返回空字符串
+
+> {&#37; &#37;} 语句错了就一定会导致模板编译不过
+
+jekyll提供的默认变量很多
 
 ### 大变量site.
 
