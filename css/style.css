@@ -387,6 +387,9 @@ article {
   article {
     margin: 10px 5px 30px 5px;
   }
+  .mobile-ignore {
+    display: none;
+  }
 }
 
 @media (min-width: 768px){

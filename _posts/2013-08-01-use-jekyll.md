@@ -182,7 +182,7 @@ paginate: 5
 
 那就是5篇文章一页.
 
-上一篇和下一篇的路径分别是用`page.preivous.url` 和 `page.next.url`获取的.
+上一篇和下一篇的路径分别是用`page.previous.url` 和 `page.next.url`获取的.
 
 jekyll的文档中貌似并没有说这俩个page的自属性.
 

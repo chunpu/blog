@@ -21,4 +21,16 @@ layout: default
       <span style="margin: 5px">{{ tag }}</span>
     {% endfor %}
   </div>
+  <div class="section-nav">
+    <div class="left align-left">
+      {% if page.previous %}
+      <a href="{{ page.previous.url}}" class="prev">上一篇:<b class="mobile-ignore"> {{ page.previous.title }}</b></a>
+      {% endif %}
+    </div>
+    <div class="right align-right">
+      {% if page.next %}
+      <a href="{{ page.next.url }}" class="next">下一篇:<b class="mobile-ignore"> {{ page.next.title }}</b></a>
+      {% endif %}
+    </div>
+  </div>
 </article>
