@@ -9,7 +9,7 @@ layout: default
     <span class="label">{{ page.category }}</span>
   </span>
   <div class="post-meta">
-    <span class="post-date">{{ page.date | date_to_string }}</span>
+    <span class="post-date">{{ page.date | date: "%Y-%m-%d %H:%M" }}</span>
   </div>
 
   <div class="post">
@@ -18,7 +18,7 @@ layout: default
   <div class="post-meta">
     <span>Tags: </span>
     {% for tag in page.tags %}
-      <span style="margin: 5px">{{ tag }}</span>
+      <span style="margin: 5px"><a href="/tags.html#{{ tag }}">{{ tag }}</a></span>
     {% endfor %}
   </div>
   <div class="section-nav">

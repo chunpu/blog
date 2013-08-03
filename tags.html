@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<ul>
+  {% for tag in site.tags %}
+    <article id="{{ tag[0] }}">
+      <h3>{{ tag[0] }}</h3>
+      <ul style="list-style-type: none;">
+        {% for post in tag[1] %}
+          <li>
+            <time>{{ post.date | date:"%Y-%m-%d" }}</time>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</ul>
