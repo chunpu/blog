@@ -1,8 +1,8 @@
 ---
-title: nginx模块开发之hello world
 layout: post
-tags
-- nginx
+title: Nginx模块开发之最简单的Hello模块
+tags:
+  - nginx
 ---
 
 nginx模块开发并不是那么容易, 从行数上来讲, 淘宝给出的tengine给出的那个所谓hello模块的长度也到了245行, 要想真正独立写出这么多代码, 对于我来说是非常难的.
@@ -83,7 +83,7 @@ static ngx_int_t handler(ngx_http_request_t *req) {
 
 光是放这个是nginx的makefile是不知道的,它不会去编译新增的模块, 还需要在`auto/modules`这个文件中加入
 
-```shell
+```bash
 if [ $HTTP_ACCESS = YES ]; then
     HTTP_MODULES="$HTTP_MODULES $HTTP_ACCESS_MODULE"
     HTTP_SRCS="$HTTP_SRCS $HTTP_ACCESS_SRCS"
@@ -91,32 +91,32 @@ fi
 # 上面是原有的, 这里才是加上的
 
 HTTP_MODULES="$HTTP_MODULES ngx_http_test_module"
-HTTP_SRCS="$HTTP_SRCS src/http/modules/ngx_http_test_module.c"
-```
-
 auto是用来生成Makefile的很多shell脚本,Nginx没有用那些构建工具来制作自己的Makefile, 而是自己写了大量的shell脚本, 学习这些脚本对于自己的shell编程也是很有帮助的. nginx的编译的生成文件都在`objs`中, 清晰明了, 因此`make clean`也只是调用`rm -rf objs`即可, 非常简洁.
 
 总之加上上面两句话, nginx就知道你要新增这个模块了, 顺序应该不是很要紧(其实我是没试过).
 
 这样我们的模块依然不起作用, 还需要修改配置文件, nginx启动完全依靠那个`conf/nginx.conf`的配置文件!
 
+
+
 ```
-    server {
-        listen       80;
-        server_name  localhost;
+server {
+    listen       80;
+    server_name  localhost;
 
-        #charset koi8-r;
+    #charset koi8-r;
 
-        #access_log  logs/host.access.log  main;
+    #access_log  logs/host.access.log  main;
 
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-        location /test {
-            test;
-        }
+    location / {
+        root   html;
+        index  index.html index.htm;
+    }
+    location /test {
+        test;
+    }
 ```
+
 我们在http中的server中加上`location /test`来插入我们的模块.
 
 运行之, 在浏览器中访问`你的域名/test`就能看到`This is Test Page`几个大字, 因为是`<h1>`的嘛!
@@ -128,12 +128,14 @@ auto是用来生成Makefile的很多shell脚本,Nginx没有用那些构建工具
 #include <ngx_http.h>
 #include <ngx_config.h>
 ```
+
 包含三个关键头文件, 这没什么异议, 注意, 我们写的模块基本都是http的.
 
 ```c
 static char *set(ngx_conf_t *, ngx_command_t *, void *);
 static ngx_int_t handler(ngx_http_request_t *);
 ```
+
 声明两个函数, 这是两个非常重要的函数, 后面主要讲.
 
 ### command注册
@@ -151,6 +153,7 @@ static ngx_command_t test_commands[] = {
   ngx_null_command
 };
 ```
+
 这是定义一个配置命令信息数组(为何是数组暂时还真不知道), 数组最后一个元素都是ngx_null_command.
 
 结构体第一个参数尤为重要, 这里是test, 指的是我们在配置文件中输入test(不是路径的`/test`).这样指定后, nginx在读取配置的时候读到test命令, 才会把接管权给我们.也就是把请求转给我们去处理.
@@ -252,3 +255,13 @@ static ngx_int_t handler(ngx_http_request_t *req) {
 ```
 
 其实主菜才是最直观的, 前面是设置http的返回头部, 后面是设置http body.简单至极.每每写到handler部分都神清气爽, 感觉自己也会用c了..
+HTTP_SRCS="$HTTP_SRCS src/http/modules/ngx_http_test_module.c"
+```
+
+补充一下. 我在用jekyll写博客的时候又出现的编译错误, 原因是使用了高亮`shell`, 不知道是不是因为没有shell, 反正它居然报错了, 修改成bash后显示正确, 这实在让我费解, 我仅仅是写一个博客而已, 你居然来个编译错误.不支持你就不管呗. jekyll用的液体模板并不能报出模板哪里错了, 总之出错了,不得不用排除法去猜, 让人郁闷.
+
+牛逼的是我发现github貌似也使用的`redcarpet`,见github blog<https://github.com/blog/832-rolling-out-the-redcarpet>
+
+github的[GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown),支持的高亮语言有这些:<https://github.com/github/linguist/blob/master/lib/linguist/languages.yml>
+
+非常可惜的是我们没法用这么全的.
