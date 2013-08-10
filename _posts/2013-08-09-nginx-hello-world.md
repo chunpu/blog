@@ -91,6 +91,10 @@ fi
 # 上面是原有的, 这里才是加上的
 
 HTTP_MODULES="$HTTP_MODULES ngx_http_test_module"
+HTTP_SRCS="$HTTP_SRCS src/http/modules/ngx_http_test_module.c"
+```
+
+
 auto是用来生成Makefile的很多shell脚本,Nginx没有用那些构建工具来制作自己的Makefile, 而是自己写了大量的shell脚本, 学习这些脚本对于自己的shell编程也是很有帮助的. nginx的编译的生成文件都在`objs`中, 清晰明了, 因此`make clean`也只是调用`rm -rf objs`即可, 非常简洁.
 
 总之加上上面两句话, nginx就知道你要新增这个模块了, 顺序应该不是很要紧(其实我是没试过).
@@ -255,8 +259,6 @@ static ngx_int_t handler(ngx_http_request_t *req) {
 ```
 
 其实主菜才是最直观的, 前面是设置http的返回头部, 后面是设置http body.简单至极.每每写到handler部分都神清气爽, 感觉自己也会用c了..
-HTTP_SRCS="$HTTP_SRCS src/http/modules/ngx_http_test_module.c"
-```
 
 补充一下. 我在用jekyll写博客的时候又出现的编译错误, 原因是使用了高亮`shell`, 不知道是不是因为没有shell, 反正它居然报错了, 修改成bash后显示正确, 这实在让我费解, 我仅仅是写一个博客而已, 你居然来个编译错误.不支持你就不管呗. jekyll用的液体模板并不能报出模板哪里错了, 总之出错了,不得不用排除法去猜, 让人郁闷.
 
