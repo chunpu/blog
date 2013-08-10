@@ -1,0 +1,19 @@
+Configuration file: /root/jekyll/blog/_config.yml
+[33m       Deprecation: Auto-regeneration can no longer be set from your configuration file(s). Use the --watch/-w command-line option instead.[0m
+            Source: /root/jekyll/blog
+       Destination: /root/jekyll/blog/_site
+      Generating... done.
+ Auto-regeneration: enabled
+[2013-08-10 14:45:46] INFO  WEBrick 1.3.1
+[2013-08-10 14:45:46] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]
+[2013-08-10 14:45:46] INFO  WEBrick::HTTPServer#start: pid=14372 port=4000
+      Regenerating: 1 files at 2013-08-10 14:45:47 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:48 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:49 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:50 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:51 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:52 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:53 ...done.
+      Regenerating: 1 files at 2013-08-10 14:45:54 ...done.
+[2013-08-10 14:45:54] INFO  going to shutdown ...
+[2013-08-10 14:45:54] INFO  WEBrick::HTTPServer#start done.
