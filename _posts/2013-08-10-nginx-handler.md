@@ -55,6 +55,6 @@ master_process off;
 
 这样就可以用gdb调试了.
 
-handler函数在`ngx_http_core_content_phase.c`中被调用.可以看到我们的handler函数被当成request结构体的`content_handler`属性.
+handler函数在`src/http/ngx_http_core_module.c`中被调用.可以看到我们的handler函数被当成request结构体的`content_handler`属性.
 
 返回`ngx_http_output_filter(req, &out)`的时候, 一次完整的请求+返回就完成了.
