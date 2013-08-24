@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 手写jQeury-1
+title: jQuery原理窥探
 tags:
 - jQuery
 - javacsript
