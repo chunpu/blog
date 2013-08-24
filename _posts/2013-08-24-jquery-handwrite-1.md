@@ -3,7 +3,7 @@ layout: post
 title: jQuery原理窥探
 tags:
 - jQuery
-- javacsript
+- Javacsript
 ---
 
 jQuery是一个伟大的库,但我一直没有去专门学习它.不过jQuery非常的人性化,导致于我们不需要像backbone那样去看说明书.
@@ -110,7 +110,7 @@ $('myDiv').click(function() {
 
 据说这就是jQuery处理多事件高效的原因..(一个函数托管所有事件)
 
-那他是怎么实现的呢,我看了一下源码,发现根本看不懂..一个大大说过,源码看不懂,就自己实现,在对比源码,如果不一样,那不是你傻逼了,就是坐着傻逼了.
+那他是怎么实现的呢,我看了一下源码,发现根本看不懂..一个大大说过,源码看不懂,就自己实现,在对比源码,如果不一样,那不是你傻逼了,就是作者傻逼了.
 
 ```javascript
 var fn = {}
@@ -152,6 +152,14 @@ fn.__proto__.bind = function(evType, fn) {
 
 当事件触发的时候,从头遍历eventList,如果`e.type`和`e.target`都相同了,那就调用此函数.
 
+> 可能有同学会问,你每次bind都去`addEventListener`会注册多个handler啊,其实不会的
+
+```javascript
+function handler(){}
+myDiv.addEventListener('click', handler)
+myDiv.addEventListener('click', handler) // 最终还是只有一个事件
+```
+
 提一下jQuery中如果事件函数返回值是`return false`就是取消冒泡事件和默认事件,也就是上面代码中这一段
 
 ```javascript
@@ -162,4 +170,6 @@ if (ev.handler(e) === false) {
 ```
 
 实现的干净利索,方便实用,居家旅行必备
+
+ps: 上文提到的原理均为自己猜测,jQuery具体实现比我瞎想的要复杂且健壮10倍多.
 
