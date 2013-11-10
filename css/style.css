@@ -15,6 +15,10 @@ time + a {
   margin: 25px;
 }
 
+p {
+  overflow: auto;
+}
+
 body {
   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 21px;
@@ -137,7 +141,6 @@ nav li {
 
 @media (max-width: 768px){
   .main-nav ul {
-    text-align: right;
   }
 }
 @media (max-width: 830px){
@@ -388,7 +391,6 @@ article {
 
 @media (max-width: 480px){
   article ul {
-    padding-left: 20px;
   }
 }
 
