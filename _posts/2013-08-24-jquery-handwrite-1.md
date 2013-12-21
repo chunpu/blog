@@ -2,8 +2,8 @@
 layout: post
 title: jQuery原理窥探
 tags:
-- jQuery
-- Javacsript
+- jquery
+- javascript
 ---
 
 jQuery是一个伟大的库,但我一直没有去专门学习它.不过jQuery非常的人性化,导致于我们不需要像backbone那样去看说明书.

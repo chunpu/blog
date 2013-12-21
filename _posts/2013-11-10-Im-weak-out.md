@@ -4,7 +4,7 @@ title: 我真是弱爆了
 layout: post
 tags:
   - life
-  - Javascript
+  - javascript
 ---
 
 起初的时候，我还觉得自己挺厉害，产生这种感觉不过是因为我可以分分钟写一个微博，写个博客，写个小网站。。
