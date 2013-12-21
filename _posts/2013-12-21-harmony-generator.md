@@ -19,7 +19,7 @@ nodejs中需要`0.11.*`版本, 官网找不到可以用[nvm](https://github.com/
 
 ```javascript
 function* Hello() {
-  // 我习惯用大驼峰命名因为这像好比generator的构造函数
+  // 我习惯用大驼峰命名因为这就好比generator的构造函数
   yield 1
   yield 2
 }
