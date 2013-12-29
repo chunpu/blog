@@ -8,15 +8,17 @@ tags:
 
 最近逢人就说KOA用着好爽啊，但每次都被泼冷水
 
-首先是看不起nodejs派：“能跟我大structs比?”。我不得不低头，这真比不起，express就因为太小没法和那些"大框架"比，KOA比express还小几倍，核心部分就100来行，说出来岂不是让java程序员笑死，自讨没趣
+首先是看不起Nodejs派：“能跟我大structs比?”。我不得不低头，这真比不起，express就因为太小没法和那些"大框架"比，KOA比express还小几倍，核心部分就100来行，说出来岂不是让java程序员笑死，自讨没趣
 
-其次是express派：“express就够屌了，我看KOA也就和express一样嘛”，我马上回到，不是有generator么，多方便，express派说。那不过是用了点ES6的特性，KOA本身没啥进步的，我一时语塞
+其次是express派：“express就够屌了，我看KOA也就和express一样嘛”，我马上回到，不是有generator么，多方便。express派说：那不过是用了点ES6的特性，KOA本身没啥进步的。我一时语塞
 
-不过我还是想扯KOA的两点好
+不管别人怎么看，KOA确实用着爽，忍不住扯KOA的两点好
 
 ### 1. yield数组
 
-yield后面可以跟数组
+yield处理逐个执行的异步函数上次已经说过了
+
+yield后面还可以跟数组，如下
 
 ```javascript
 var fs = require('fs')
@@ -62,7 +64,6 @@ app.use(function* (next) {
     return this.body = e.message || "I'm dead"
   }
 })
-
 app.use(function* () {
   var arr = yield ['4.txt', '2.txt', '3.txt'].map(function(path) {
     // 4.txt不存在
@@ -70,7 +71,6 @@ app.use(function* () {
   })
   this.body = arr.join(',')
 })
-
 app.listen(8000)
 ```
 
@@ -133,6 +133,7 @@ try {
 }
 console.timeEnd(1)
 
+// 取出来放在外面
 console.time(2)
 try {
   throw new Error()
