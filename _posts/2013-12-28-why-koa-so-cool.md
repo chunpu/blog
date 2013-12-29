@@ -115,6 +115,7 @@ app.use(function* (next) {
   try {
     yield next
   } catch(e) {
+    // 所有处理错误的代码都放在外面
     errHandler(e)
   }
 })
