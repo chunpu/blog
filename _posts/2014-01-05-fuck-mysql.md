@@ -33,6 +33,8 @@ bind-address表示监听时绑定的IP地址,为什么要这么改呢?
 
 ```mysql
 GRANT ALL PRIVILEGES ON *.* TO  'USERNAME'@'IP'  IDENTIFIED  BY  'PASSWORD';
+
+FLUSH PRIVILEGES;
 ```
 
 注意此处有三个变量, IP就是指远程client的ip地址,如果希望所有IP都可以访问, 就把`IP`改为`%`
