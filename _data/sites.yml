@@ -36,4 +36,9 @@
     url: https://developer.mozilla.org/zh-CN/
     notes: 前端查询
 
-
+- name: cool site
+  notes: 酷站
+  links:
+  - name: cloudup
+    url: https://cloudup.com/
+    notes: share video & photo
