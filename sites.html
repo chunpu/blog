@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<style>
+small {
+  padding: 10px;
+  color: #ccc;
+}
+</style>
+<article>
+  <ul>
+  {% for type in site.data.sites %}
+    <li>
+      <span>{{ type.notes }}<span>
+      <ul>
+        {% for link in type.links %}
+          <li>
+            <a href='{{ link.url }}'>{{ link.name }} <small>{{ link.notes }}</small></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+</article>

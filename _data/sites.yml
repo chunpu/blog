@@ -1,0 +1,39 @@
+- name: tech
+  notes: 编程技术
+  links:
+  - name: Hacker News
+    url: https://news.ycombinator.com/
+    notes: HN
+
+  - name: v2ex
+    url: http://www.v2ex.com/
+    notes: 程序员论坛
+
+  - name: reddit
+    url: http://www.reddit.com/
+    notes: 互联网资讯
+
+  - name: tutsplus
+    url: http://tutsplus.com/
+    notes: 技术学习
+
+  - name: startup news
+    url: http://news.dbanotes.net/
+    notes: 类HN网站,大feng维护
+
+  - name: tea
+    url: http://tea.tisiwi.com/
+    notes: 类HN网站
+
+- name: art
+  notes: 前端&设计
+  links:
+  - name: Taobao UED
+    url: http://ued.taobao.org/blog/
+    notes: 淘宝UED
+
+  - name: MDN
+    url: https://developer.mozilla.org/zh-CN/
+    notes: 前端查询
+
+
