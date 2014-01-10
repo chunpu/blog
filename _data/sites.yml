@@ -36,6 +36,14 @@
     url: https://developer.mozilla.org/zh-CN/
     notes: 前端查询
 
+  - name: Medium
+    url: https://medium.com
+    notes: really cool
+
+  - name: html5rocks
+    url: http://www.html5rocks.com/
+    notes: promise site...
+
 - name: cool site
   notes: 酷站
   links:
