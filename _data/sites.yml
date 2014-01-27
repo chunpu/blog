@@ -32,6 +32,10 @@
     url: http://ued.taobao.org/blog/
     notes: 淘宝UED
 
+  - name: 大软坊
+    url: http://app.hustonline.net/
+    notes: 各种软件集合
+
   - name: MDN
     url: https://developer.mozilla.org/zh-CN/
     notes: 前端查询
