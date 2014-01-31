@@ -87,7 +87,7 @@ create table post_table(id bigint primary key, title varchar(20), text content, 
 3. 插入数据
 
 ```shell
-insert into post_table(1234, 'title', 'this is content', 4321, 2345, now, now, now);
+insert into post_table values(1234, 'title', 'this is content', 4321, 2345, now, now, now);
 ```
 
 4. 查询数据(如第二页: 第20-40条)
