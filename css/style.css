@@ -24,6 +24,10 @@ p {
   overflow: auto;
 }
 
+img {
+  box-shadow: 8px 8px 20px #363636;
+}
+
 body {
   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 21px;

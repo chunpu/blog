@@ -8,7 +8,11 @@ tags:
 
 注意：本文只为了看一些被墙的文献，18岁以下请主动关闭此页
 
-首先是vpn翻墙，简直没有比这个更简单快速的方法了，就3步
+这里将介绍3种使用国外vps科学上网的方法，分别是`vpn`, `ssh`, `shadowsocks`
+
+首先是vpn翻墙，vpn一般是全局科学上网，不管是iPhone还是Android还是windows都不需要安装任何其他软件就可以翻*墙，对客户端来说是最方便的方案
+
+服务端部署也不麻烦(有了下文的一键脚本后..)，就3步
 
 1 - 下载并运行脚本
 
@@ -37,7 +41,7 @@ COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 pptpd   1614 root    6u  IPv4   9988      0t0  TCP *:1723 (LISTEN)
 ```
 
-为了感谢该[脚本](http://yzs.me/1881.html)(主要是防止以后链接失效), 我决定把脚本贴进来。。
+为了感谢该[脚本](http://yzs.me/1881.html)(主要是防止以后链接失效), 决定把脚本贴进来。。
 
 ```sh
 #!/bin/bash
@@ -64,7 +68,7 @@ get_char()
 
 clear
 
-ip=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ pr                                                                                                                        int $1}')
+ip=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')
 echo "$ip"
 
         echo "==========================="
@@ -114,29 +118,30 @@ done
 apt-get -y update
 apt-get -y install pptpd
 sed -i "s#\#localip 192.168.0.1#localip 192.168.0.1#g" /etc/pptpd.conf
-sed -i "s#\#remoteip 192.168.0.234-238,192.168.0.245#remoteip 192.168.0.234-238,                                                                                                                        192.168.0.245#g" /etc/pptpd.conf
+sed -i "s#\#remoteip 192.168.0.234-238,192.168.0.245#remoteip 192.168.0.234-238,192.168.0.245#g" /etc/pptpd.conf
 wget http://soft.yzs.me/pptpd-options -O /etc/ppp/pptpd-options
 touch /var/log/pptpd.log
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 sysctl -p
 iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j SNAT --to-sour                                                                                                                        ce $serverip
+iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j SNAT --to-source $serverip
 echo "$username * $password *">>/etc/ppp/chap-secrets
-sed -i "1i\iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j MAS                                                                                                                        QUERADE;iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j SNAT -                                                                                                                        -to-source $serverip" /etc/rc.local
+sed -i "1i\iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j MASQUERADE;iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o $netdriver -j SNAT --to-source $serverip" /etc/rc.local
 service pptpd restart
 ```
 
-3 - 在windows上添加vpn连接， 结束！
+
+3 - 在windows或android或iphone上添加vpn连接， 结束！
 
 ----
 
-下面介绍普通ssh科学上网方法
+接下来介绍普通ssh科学上网方法
 
-ssh的方法不需要在服务器上做任何设置，因为一般vps都会默认开启sshd，我们只需要3步即可科学上网
+ssh的方法不需要在服务器上做任何设置，因为一般vps都会默认开启sshd，我们同样只需要3步即可科学上网
 
 1 - 下载putty([下载链接](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe))
 
-2 - 编写一个脚本kexueshangwang.bat, 放在putty同路径下
+2 - 编写一个一行命令的脚本kexueshangwang.bat, 放在putty同路径下
 
 ```sh
 putty.exe -D 1080 root@你vps的IP
@@ -160,15 +165,15 @@ putty.exe -D 1080 root@你vps的IP
 
 最后介绍shadowsocks科学上网的方法
 
-shadowsocks也是目前流行所趋，他的优点，嗯 我也不大清楚，至少他不用建一个单独给人上网的linux账号，而且一般shadowsocks都会用上epoll的event库，性能应该也大大提升。也就是说shadowsocks是用来大批量科学上网的方法(卖￥)
+shadowsocks也是目前流行所趋，他的优点，我也不大清楚，不过至少他不用建一个单独给人上网的linux账号，而且一般shadowsocks都会用上epoll的event库，性能应该也大大提升。也就是说shadowsocks是用来大批量科学上网的方法(卖￥)
 
-方法同样简单，不过此处只介绍nodejs方法，谁让nodejs是最牛x的平台呢，同样是3步
+方法同样简单，不过此处只介绍nodejs方法 (谁让nodejs是最牛x的平台呢，同样是3步
 
 1 - 分别在客户端和vps端安装nodejs
 
-window直接在[nodejs官网](http://nodejs.org/)下载即可
+window直接在[nodejs官网](http://nodejs.org/)下载安装即可
 
-ubuntu更容易`apt-get install nodejs`
+ubuntu更容易, `apt-get install nodejs`
 
 2 - 在客户端和vps端分别安装shadowsocks的全局程序
 
@@ -195,4 +200,6 @@ npm install -g shadowsocks
 
 在客户端执行`sslocal`
 
-然后做端口代理转发即可，具体步骤同方法2普通ssh上网步骤3 
+然后做端口代理转发即可，具体步骤同方法2普通ssh上网步骤3
+
+据说shadowsocks使用udp通信，不必担心断线问题
