@@ -490,6 +490,7 @@ aside li.current a:before {
 
 .section-nav > div {
   width: 49.5%;
+  white-space: nowrap;
 }
 
 .section-nav a, .section-nav span {
