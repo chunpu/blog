@@ -24,6 +24,13 @@ p {
   overflow: auto;
 }
 
+::-webkit-scrollbar-corner{background-color:transparent;}
+::-webkit-scrollbar-button{width:0;height:0;display:none; }
+::-webkit-scrollbar-thumb{width:7px; background-color: rgba(111, 111, 111, 0.4); border-radius:7px; }
+::-webkit-scrollbar{width:7px;height:7px;}
+::-webkit-scrollbar-track{width:15px;}
+::-webkit-scrollbar:hover{background-color:transparent;}
+
 img {
   box-shadow: 8px 8px 20px #363636;
 }
