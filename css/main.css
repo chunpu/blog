@@ -35,7 +35,6 @@ a:visited { color: #a0a; }
 /*
 /*****************************************************************************/
 ul.posts {
-  list-style-type: none;
   margin-bottom: 2em;
 }
 
