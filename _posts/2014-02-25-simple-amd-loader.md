@@ -10,7 +10,7 @@ tags:
 
 之前写网页，都是直接一个inline的style和一个inline的script搞定的
 
-好了不开玩笑了，模块加载的好处是显而易见的，解决模块依赖的关系，线上联调(改host)方便
+不开玩笑了..模块加载的好处是显而易见的，解决模块依赖的关系，线上联调(加url代理)方便
 
 [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)就是一个模块加载的方案
 
@@ -18,7 +18,7 @@ AMD全称(Asynchronous Module Definition), 三个单词每个都是关键字，�
 
 AMD暴露在外的函数只有一个: `define`
 
-用requirejs的可能会说不是`require([], funciton() {xxx})`的么，但我们发现require完全可以改成define，但在语义上确实说不大通，我明明是要用这些个库，凭什么让我们用define呢，require才对嘛
+用requirejs的可能会说不是`require([], funciton() {xxx})`的么，但我们发现require完全可以改成define，虽然在语义上确实说不大通，我明明是要用这些个库，凭什么让我们用define呢，require才对嘛
 
 但AMD标准就是如此，因此我们在真实环境中也应该用define而不是require
 
@@ -91,7 +91,7 @@ define(function(require, exports, module) {
 })
 ```
 
-看着貌似长了一大截(以后还要加上exports的。。)，但说不定加上这个别人就愿意用你的库惹
+看着貌似长了一大截(加上commonJS还会更长。。)，但说不定加上这个别人就愿意用你的库惹
 
 我的超简易AmdJS在这里<https://github.com/chunpu/AmdJS>, 可以成功加载jQuery，加载完我就对继续实现AMD失去兴趣了，唉我又是五分钟热度，实现基本功能就跑的那种
 
