@@ -242,7 +242,7 @@ def.promise.then(function(x) {
 
 看到def, 才能看到Promise的精髓, 甚至jQuery反而提供defer作为主对象, promise不过是附属对象
 
-我的完整Promise在[这里](https://github.com/chunpu/promise)
+我的完整Promise在[这里](https://github.com/chunpu/promise/blob/master/promise.js)
 
 虽然目前Promise还不到100行, 但真正实现起来, 要比[co](https://github.com/visionmedia/co)那样借助yield的异步框架混淆很多, 我已经改了很多次, 但仍有bug, 这当然也跟我最近老打飞机有关, 已经有点神志不清
 
