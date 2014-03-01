@@ -79,7 +79,7 @@ function Promise(resolver) {
 }
 ```
 
-我们还没有写resolve和reject这两个内部函数呢, 这俩函数作用完全一样, 只不过一个表示正确, 一个表示错误, 我们完全可以用类似connect中的next来表达这两个函数
+我们还没有写resolve和reject这两个内部函数呢, 这俩函数作用完全一样, 只不过一个表示正确, 一个表示错误, 我们完全可以用一个类似connect中的next来表达这两个函数
 
 ```javascript
 function resolve(x) {
@@ -90,7 +90,7 @@ function reject(resson) {
 }
 ```
 
-那这个控制流程的next到底该啥样呢, 我们都知道, next不过是去调用queue中下一个函数
+那这个控制流程的next到底该啥样呢, 我们都知道, next的作用不过是去调用queue中下一个函数而已
 
 ```javascript
 function next(i, val) {
@@ -115,11 +115,11 @@ p.then(function(x) {
 })
 ```
 
-因为完全没有延迟, 显然resolve先走了, 而resolve执行的时候, queue中还没有函数去接它
+因为完全没有延迟, 显然resolve先走了, 而resolve执行的时候, queue中还没有函数去接它, 这个时候就then就不可能触发了
 
 因此要么把resolve的值存起来, 要么就是让resolve肯定晚于后面的then执行
 
-我这里偷一下懒
+我这里偷一下懒, 用一下setTimeout
 
 ```javascript
 function(i, val) {
@@ -244,6 +244,6 @@ def.promise.then(function(x) {
 
 我的完整Promise在[这里](https://github.com/chunpu/promise)
 
-虽然目前Promise还不到100行, 但真正实现起来, 要比co那样借助yield的异步框架混淆很多, 我已经改了很多次, 但仍有bug, 这当然也跟我最近老打飞机有关, 已经有点神志不清
+虽然目前Promise还不到100行, 但真正实现起来, 要比[co](https://github.com/visionmedia/co)那样借助yield的异步框架混淆很多, 我已经改了很多次, 但仍有bug, 这当然也跟我最近老打飞机有关, 已经有点神志不清
 
 但是yield估计几年后才能用, 因此趁早学会Promise还是有必要滴
