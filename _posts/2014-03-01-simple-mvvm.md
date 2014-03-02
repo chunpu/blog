@@ -17,7 +17,7 @@ dom操作快不快, 取决于mvvm操作的dom大小, 粒度越细, 操作越快,
 
 ```html
 <div id='demo'>
-  Hello <span class='{{css}}'>{{name}}</span>!
+  Hello <span class='{%raw%}{{css}}{%endraw%}'>{%raw%}{{name}}{%endraw%}</span>!
 </div>
 ```
 
