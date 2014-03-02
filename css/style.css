@@ -404,18 +404,23 @@ article {
   border-radius: 10px;
   padding: 20px;
   margin: 50px 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,.1);
-  font-size: 16px;
+  box-shadow: 0 6px 10px rgba(0,0,0,.4);
+  font-size: 21px;
 }
 
-@media (max-width: 480px){
-  article ul {
+@media (max-width: 800px){
+  /* phantomjs */
+  article {
+    margin: 10px 5px 30px 5px;
+  }
+  body {
+    text-shadow: none;
+    color: #fff;
   }
 }
 
 @media (max-width: 568px){
   article {
-    margin: 10px 5px 30px 5px;
   }
   .mobile-ignore {
     display: none;
@@ -768,7 +773,7 @@ article ul li blockquote {
 }
 
 blockquote {
-  border-left: 11px solid #777;
+  border-left: 6px solid #777;
   padding-left: 20px;
 }
 
