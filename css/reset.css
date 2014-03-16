@@ -26,19 +26,30 @@ body {
 
 header, footer {
   text-align: center;
-  padding: 50px 0;
+  padding: 50px;
 }
 
 header {
   font-size: 30px;
-  line-height: 20px;
-  font-weight: 300;
+  line-height: 40px;
 }
 
 header li {
   display: inline-block;
-  padding: 0 40px;
   border-left: 1px dashed #ccc;
+  padding: 0 40px;
+}
+
+@media (max-width: 850px){
+  header li {
+    display: block;
+    border-left: 0;
+    text-align: left;
+  }
+  main {
+    margin: auto 30px;
+    padding: 0 30px;
+  }
 }
 
 header ul :first-child {
@@ -56,8 +67,8 @@ hr {
   margin: 20px 0;
 }
 
-h1, h2 {
-  text-indent: -3px;
+h1, h2, h3 {
+  text-indent: -10px;
 }
 
 h1 {
@@ -74,6 +85,16 @@ h1 {
 time {
   font-size: 18px;
   color: #999;
+  font-family: Consolas;
+}
+
+article h3:before {
+  display: inline-block;
+  color: #F19D94;
+  width: 10px;
+  text-align: center;
+  content: '▪';
+  margin-right: 5px;
 }
 
 article p {
@@ -82,7 +103,19 @@ article p {
 }
 
 code {
-  font-family: Consolas, 微软雅黑;
+  font-family: Consolas, monospace, 微软雅黑;
+}
+
+code .s1, code .mi {
+  color: #eb7a00;
+}
+
+code .kd {
+  color: #9e2c31;
+}
+
+code .nx {
+  color: #008000;
 }
 
 pre {
@@ -123,4 +156,5 @@ footer {
   color: #777;
   font-size: 14px;
   font-family: Consolas;
+  width: 100%;
 }
