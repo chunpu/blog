@@ -2,18 +2,15 @@
 layout: default
 ---
 <article>
-  <h2>{{ page.title }}</h2>
+  <h1>{{ page.title }}</h1>
   {% for tag in page.tag %}
   {% endfor %}
-  <span class="post-category"》
+  <span class="post-category">
     <span class="label">{{ page.category }}</span>
   </span>
   <div class="post-meta">
-    <span class="post-date">{{ page.date | date: "%Y-%m-%d %H:%M" }}</span>
+    <time class="post-date">{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
   </div>
- <!-- test -->
- <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_t163" data-cmd="t163" title="分享到网易微博"></a></div>
- <!-- end test -->
   <div class="post">
   {{ content }}
   </div>

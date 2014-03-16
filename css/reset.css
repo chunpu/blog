@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  color: #777;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* reset */
+
+body {
+  color: #333;
+  font-family: Arial, 微软雅黑;
+  line-height: 1.8;
+  font-size: 20px;
+}
+
+header, footer {
+  text-align: center;
+  padding: 50px 0;
+}
+
+header {
+  font-size: 30px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+header li {
+  display: inline-block;
+  padding: 0 40px;
+  border-left: 1px dashed #ccc;
+}
+
+header ul :first-child {
+  border-left: 0;
+}
+
+.emoji {
+  height: 20px;
+  vertical-align: baseline;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #dededc;
+  margin: 20px 0;
+}
+
+h1, h2 {
+  text-indent: -3px;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+time {
+  font-size: 18px;
+  color: #999;
+}
+
+article p {
+  margin: 15px 0;
+  letter-spacing: 1px;
+}
+
+code {
+  font-family: Consolas, 微软雅黑;
+}
+
+pre {
+  font-family: Consolas;
+  padding: 20px 18px;
+  background-color: #f8f8f8;
+  overflow-x: auto;
+  color: #666;
+  line-height: 24px;
+  font-size: 16px;
+}
+
+p code {
+  background: #C2D8FF;
+  padding: 0 2px;
+  color: #fff;
+}
+
+blockquote {
+  border-left: 3px solid #57ad68;
+  padding-left: 20px;
+  font-size: 17px;
+  color: #444;
+}
+
+article a {
+  color: #57ad68;
+  padding: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 30px;
+  background-color: #f2f2f2;
+  color: #777;
+  font-size: 14px;
+  font-family: Consolas;
+}

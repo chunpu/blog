@@ -1,75 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
-        <meta name="renderer" content="webkit">
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/pygments.css" />
-        <link rel="stylesheet" href="/css/normalize.css" />
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>{{ page.title }}</title>
+  <meta name='viewport' content='width=device-width'>
+  <meta name='renderer' content='webkit'>
+  <link rel='stylesheet' href='/css/reset.css' />
+  <!-- syntax highlighting CSS 
+  <link rel='stylesheet' href='/css/style.css' />
+  <link rel='stylesheet' href='/css/pygments.css' />
+  <link rel='stylesheet' href='/css/normalize.css' />
+  -->
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        {% for nav in site.data.nav %}
+          <li>
+            <a href='/{{ nav.href }}'>{{ nav.title }}</a>
+          </li>
+        {% endfor%}
+      </ul>
+    </nav>
+  </header>
 
-    </head>
-    <body>
+  <main class='inner'>
+    {{ content }}
+  </main>
 
-        <div class="container">
-          <div class="site">
-          
-        <article>
-            <div class="header">
-              <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-              <nav class="main-nav unit two-thirds hide-on-mobiles">
-                <ul>
-                  <li>
-                    <a href='/'>home</a>
-                  </li>
-                  <li>
-                    <a href='/categories.html'>categories</a>
-                  </li>
-                  <li>
-                    <a href='/tags.html'>tags</a>
-                  </li>
-                  <li>
-                    <a href='/about.html'>about</a>
-                  </li>
-                  <li>
-                    <a href='/links.html'>links</a>
-                  </li>
-                  <li>
-                    <a href='/sites.html'>sites</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-
-         </article>
-
-                {{ content }}
-
-            <article>
-
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Feng Tong<br />
-                  527653908@qq.com
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/chunpu/">github.com/chunpu</a><br />
-                  <a href="http://weibo.com/ft15222919293">weibo.com/ft15222919293</a><br />
-                </p>
-              </div>
-            </div>
-          </article>
-
-          </div>
-        </div> <!-- /container -->
-
-    </body>
+  <footer>
+    Copyright ©FengTong  
+  </footer>
+</body>
 </html>
 <!-- ga -->
 <script>
