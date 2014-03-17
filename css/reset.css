@@ -18,10 +18,11 @@ a {
 /* reset */
 
 body {
-  color: #333;
-  font-family: Arial, 微软雅黑;
-  line-height: 1.8;
-  font-size: 20px;
+  color: #222;
+  font-family: Helvetica, 宋体, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
+  font-size: 19px;
+  padding: 15px 15px 0;
+  line-height: 1.6em;
 }
 
 header, footer {
@@ -43,14 +44,24 @@ header li {
 @media (max-width: 850px){
   header li {
     display: block;
-    border-left: 0;
-    text-align: left;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    border: 0;
   }
-  main {
-    margin: auto 30px;
-    padding: 0 30px;
+  header a {
+    color: #aaa;
+  }
+  header {
+    padding: 0;
+  }
+  header:after {
+    display: table;
+    content: '';
+    clear: both;
   }
 }
+
 
 header ul :first-child {
   border-left: 0;
@@ -76,6 +87,10 @@ h1 {
   line-height: 60px;
 }
 
+h2 {
+  line-height: 50px;
+}
+
 .inner {
   width: 100%;
   max-width: 700px;
@@ -86,6 +101,10 @@ time {
   font-size: 18px;
   color: #999;
   font-family: Consolas;
+}
+
+article {
+  word-break: break-all;
 }
 
 article h3:before {
@@ -99,7 +118,6 @@ article h3:before {
 
 article p {
   margin: 15px 0;
-  letter-spacing: 1px;
 }
 
 code {
@@ -137,8 +155,8 @@ p code {
 blockquote {
   border-left: 3px solid #57ad68;
   padding-left: 20px;
-  font-size: 17px;
-  color: #444;
+  font-size: 18px;
+  color: #666;
 }
 
 article a {
@@ -152,9 +170,8 @@ a:hover {
 
 footer {
   margin-top: 30px;
-  background-color: #f2f2f2;
   color: #777;
   font-size: 14px;
   font-family: Consolas;
-  width: 100%;
+  border-top: 1px solid #eee;
 }
