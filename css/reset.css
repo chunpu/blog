@@ -69,7 +69,7 @@ header ul :first-child {
 
 .emoji {
   height: 20px;
-  vertical-align: baseline;
+  vertical-align: text-top;
 }
 
 hr {
