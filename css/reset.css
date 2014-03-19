@@ -8,6 +8,11 @@ ol, ul {
   margin-left: 30px;
 }
 
+nav ul, ul.posts {
+  list-style: none;
+  margin-left: 0;
+}
+
 a {
   color: #777;
 }
@@ -19,11 +24,12 @@ a {
 /* reset */
 
 body {
-  color: #3A4145;
-  font-family: 'Droid Serif', 宋体, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
+  color: #666;
+  font-family: 'Droid Serif', Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
   font-size: 19px;
   padding: 15px 15px 0;
   line-height: 1.6em;
+  background: #fefefe;
 }
 
 /* font test */
@@ -94,7 +100,17 @@ hr {
 }
 
 h1, h2, h3 {
-  text-indent: -10px;
+  text-align: center;
+}
+
+
+h1, h2, h3, h4 {
+  color: #444;
+  font-family: 宋体;
+}
+
+h4 {
+  color: #555;
 }
 
 h1 {
@@ -130,7 +146,7 @@ h3 {
   counter-reset: small;
 }
 
-h3:before {
+div.post h3:before {
   content: counter(big)'.'counter(mid);
 }
 
@@ -201,7 +217,7 @@ pre {
 }
 
 p code {
-  background: #f3f3f3;
+  background: #e7e7e7;
   padding: 0 2px;
 }
 
