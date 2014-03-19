@@ -4,7 +4,8 @@
 }
 
 ol, ul {
-  list-style: none;
+  /*list-style: none;*/
+  margin-left: 30px;
 }
 
 a {
@@ -18,11 +19,25 @@ a {
 /* reset */
 
 body {
-  color: #333;
-  font-family: Helvetica, 宋体, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
+  color: #3A4145;
+  font-family: 'Droid Serif', 宋体, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
   font-size: 19px;
   padding: 15px 15px 0;
   line-height: 1.6em;
+}
+
+/* font test */
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Serif'), local('DroidSerif'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Serif Bold'), local('DroidSerif-Bold'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/QQt14e8dY39u-eYBZmppwTqR_3kx9_hJXbbyU8S6IN0.woff) format('woff');
 }
 
 header, footer {
@@ -106,15 +121,15 @@ time {
 article code, article a {
   word-break: break-all;
 }
-
+/*
 article h3:before {
   display: inline-block;
-  color: #F19D94;
+  color: #777;
   text-align: center;
   content: '▪';
   margin: 0 2px 0 7px;
 }
-
+*/
 article p {
   margin: 15px 0;
 }
@@ -146,13 +161,12 @@ pre {
 }
 
 p code {
-  background: #C2D8FF;
+  background: #f3f3f3;
   padding: 0 2px;
-  color: #fff;
 }
 
 blockquote {
-  border-left: 3px solid #57ad68;
+  border-left: 3px solid #777;
   padding-left: 20px;
   font-size: 18px;
   color: #666;
