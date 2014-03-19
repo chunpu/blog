@@ -106,6 +106,46 @@ h2 {
   line-height: 50px;
 }
 
+h3 {
+  line-height: 45px;
+}
+
+/* auto number */
+
+h1 {
+  counter-reset: big;
+}
+
+h2 {
+  counter-increment: big;
+  counter-reset: mid;
+}
+
+h2:before {
+  content: counter(big);
+}
+
+h3 {
+  counter-increment: mid;
+  counter-reset: small;
+}
+
+h3:before {
+  content: counter(big)'.'counter(mid);
+}
+
+h4 {
+  counter-increment: small;
+}
+
+h4:before {
+  content: counter(big)'.'counter(mid)'.'counter(small);
+}
+
+h2:before, h3:before, h4:before {
+  padding-right: 10px;
+}
+
 .inner {
   width: 100%;
   max-width: 700px;
@@ -142,7 +182,7 @@ code .s1, code .mi {
   color: #eb7a00;
 }
 
-code .kd {
+code .k, code .kd {
   color: #9e2c31;
 }
 
