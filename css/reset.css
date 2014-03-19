@@ -165,7 +165,6 @@ h2:before, h3:before, h4:before {
 .inner {
   width: 100%;
   max-width: 700px;
-  width: 700px;
   margin: 0 auto;
   display: block;
 }
