@@ -40,6 +40,10 @@
     url: http://app.hustonline.net/
     notes: 各种软件集合
 
+  - name: thx
+    url: http://thx.alibaba-inc.com/
+    notes: thx
+
   - name: MDN
     url: https://developer.mozilla.org/zh-CN/
     notes: 前端查询
