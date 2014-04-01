@@ -260,3 +260,22 @@ footer {
   font-family: Consolas;
   border-top: 1px solid #eee;
 }
+
+/* table */
+th, td {
+  text-align: center;
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+  margin: 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tr:nth-child(2n) {
+  background: #f8f8f8;
+}
+
+

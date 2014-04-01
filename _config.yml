@@ -4,3 +4,7 @@ pygments: true
 auto: true
 gems:
   - jemoji
+redcarpet:
+  extensions:
+    - tables
+    - autolink
