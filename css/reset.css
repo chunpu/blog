@@ -267,6 +267,7 @@ th, td {
   padding: 6px 13px;
   border: 1px solid #ddd;
   margin: 0;
+  max-width: 280px;
 }
 
 table {
