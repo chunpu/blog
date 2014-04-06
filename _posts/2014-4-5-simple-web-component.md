@@ -135,6 +135,53 @@ var data = {
 unit('600px') = [600, 'px']
 ```
 
+data远不止这些作用, data本身是用来mod数据渲染的
+
+```js
+$.extend(data, getDataById(id)) // id为组件id, 唯一的, 比如由img, title等值
+```
+
+### 数据结构
+
+```js
+grid: {
+  width: 980px,
+  margin: 20px,
+  rows: [row1, row2, ...]
+}
+
+row: {
+  cols: [col1, col2, ...]
+}
+
+cols: {
+  mods: [mod1, mod2, ...]
+}
+
+mod: {
+  id: 343534346, // uuid
+  data: {}, // 如果没data, 就用id取
+  modid: 002, // mod的id, 用mod的id可以取出对应的html, js, css,
+  mods: [mod1, mod2, mod3] // 用到的mod
+}
+```
+
+因此渲染需要三个数据
+
+一个是全部的用到的全部mod(jade, less, js)
+
+```jade
++mod-001()
++mod-002()
++mod-003()
+```
+
+我们必须知道其用到的mod才能进行渲染
+
+另一个是全部的data, 和id有关
+
+最后就是grid的结构了, 还是那句话mod只关心它下面的那个mod, 不会管孙子mod
+
 ### 总结
 
 可以看到, 这些看起来都无比简单, 没有难度, 关键是它在写法上不需要任何专门的学习, 同时也保证了组件的通用性, 不过这还只是我口头说说, 具体是否真能像我想的这么美好这么屌还得等我写出来再看..
