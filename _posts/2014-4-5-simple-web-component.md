@@ -297,6 +297,7 @@ mod: {
   dataid: ---uuid---, // 数据id
   modid: 002 // mod-id, 可通过这个获取其_data(自带默认data), jade, less, js
 }
+```
 
 通过modid判断一个对象是否为mod对象
 
@@ -310,9 +311,85 @@ mod: {
 6. css渲染: 通过data增加less变量, `less.parse(mod.less)`
 7. js渲染: 这是最麻烦的, 因为data不好处理, 见下一条
 
-```
 
 ### data处理方法
+
+现在最复杂的反而是默认data的处理, 首先要支持单个使用, 就是用户看到直接复制下来就能直接用, 然后又能完美支持模块化
+
+```js
+$(function() {
+    // var
+    var w = 600
+    var n = 7
+    var speed = 100
+    var autoSpeed = 2000 // 自动切换时间
+    var isAutorun = false
+
+    // main
+})
+```
+
+现在要变成
+
+```js
+var data = {
+  w: 600,
+  n: 7,
+  speed: 100,
+  autoSpeed: 2000,
+  isAutorun: false
+}
+$(function() {
+  // main
+})
+```
+
+如果我们要在js用的话, 期望是这样
+
+```js
+// 像原生一样, 易复制
+$(function() {
+  var
+    w = 600
+  , n = 7
+  , speed: 100
+  , autoSpeed: 2000
+  , isAutorun
+
+  // main
+})
+
+// 或者是写在参数中, 较简洁, 难以复制
+$(function(w, n, speed, autoSpeed, isAutorun) {
+  // main
+})
+```
+
+不管这两咋整, 都非常复杂, 要在function里插东西, 怎么写都不会优雅, 我们不得不重新定义js的格式, wrapper由我们自己加...
+
+```js
+var data = {
+  ...
+}
+// main
+$('xxx').click()
+
+// 然后我们像requirejs或者nodejs那样给他套commonjs的wrapper, 我们甚至可以给他套AMD的define wrapper..
+// 选择权在我们这里, 因此去掉原function势在必行
+$(function() {
+
+var data = {
+  ...
+}
+// main
+$('xxx').click()
+// 未完..
+})
+
+```
+
+
+可惜这个太复杂了
 
 ### 总结
 
