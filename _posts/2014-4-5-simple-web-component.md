@@ -154,7 +154,7 @@ row: {
   cols: [col1, col2, ...]
 }
 
-cols: {
+col: {
   mods: [mod1, mod2, ...]
 }
 
@@ -203,7 +203,8 @@ each item in arr
   +mod-{%raw%}{{= mod-id}}{%endraw%}(item)
 ```
 
-把这个模板称之为预处理模板, 就好比gcc的预处理那样, 仅仅是把define先转换一下, 在词法的前面, 使用`{%raw%}{{}}{%endraw%}`来表示字符串
+> 这里犯了一个严重的错误, jade早早支持了[dynamicMixins](https://github.com/visionmedia/jade/pull/1308/commits), 他确实不能这么写`+mod-#{var}`, 但可以这么写`+#{'mod-' + var}`.
+要避免这种错误的发生, 就是要紧跟自己常用repo的commit, 版本更新, bug issue等, 不然容易闹笑话:sob:
 
 不过这又有问题了, 谁说每个tab或者每个div都是用一样的mixin/mod啊, 我想第一个用mod-001, 第二个用mod-002, ..不行吗
 
@@ -248,7 +249,70 @@ ul.bd
       +mod-{{= tabs[i].mod}}(tabs[i])
   {{ } }}
 {% endraw %}
+
+// 好吧, 上面是我刚开始不知道有dynamicMixin的方案, 现在简洁多了
+ul.nav
+  each item in tabs
+    li= item.title
+      ul.bd
+        each tab in tabs
+          li
+            +#{'mod-' + tab.mod}(tabs[i])
 ```
+
+这种模板套模板的方式实在不优雅, 但是为了mixin动态化, 不得不这么做, 这个时候, 又引出一个问题
+
+### Grid是不是一个组件
+
+这是个很复杂的问题, 如果grid是组件, 那我们真正做到了递归, 看着非常完美.
+但问题就在与, grid是可以拖动, 添加行, 如果其他组件也能做到这样, 操作起来会不会很乱?
+不过这也很好解决, 每次只能操作主mod和他的一级son mod, 要操作son mod, 必须把主mod切换成son mod, 大小的话可以用transiform的scale变大嘛
+
+那grid写成组件是啥样呢?
+
+```jade
+.grid
+  each row in rows
+    .row
+      each col in row
+        .col(class="col-#{col.width}")
+          each mod in col.mods
+            +#{'mod-' + mod.id}
+```
+
+grid的数据结构就是上文的结构, 可以看出非常的简洁, 完全可以组件化
+
+因此可以看出整个页面可以彻底数据化了, 注意, 仅仅是数据化, 而不是mvvm中model的意思, 此工具想做的是通过数据快速渲染整个页面, 和mvvm要做的完全无关, mvvm将会在组件中用
+
+### 渲染一个页面需要的数据
+
+- locals: 也就是第一个model的data, 一般根model是grid model
+- 全部用到的mod
+- 全部用到的data
+
+单个mod的结构是固定的(不按前文了)
+
+```js
+mod: {
+  dataid: ---uuid---, // 数据id
+  modid: 002 // mod-id, 可通过这个获取其_data(自带默认data), jade, less, js
+}
+
+通过modid判断一个对象是否为mod对象
+
+渲染的过程如下
+
+1. 现有locals
+2. 遍历locals, 找到mod对象, 列出全部用到的mod
+3. 遍历用到的mods, 通过dataid把data转换成真实数据, 通过modid获取mod默认的_data, jade, less, js
+4. `$.extend(_data, data); mod.data = _data`
+5. html渲染: jade.render(jadeStr, locals)
+6. css渲染: 通过data增加less变量, `less.parse(mod.less)`
+7. js渲染: 这是最麻烦的, 因为data不好处理, 见下一条
+
+```
+
+### data处理方法
 
 ### 总结
 
