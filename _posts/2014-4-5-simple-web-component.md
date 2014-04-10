@@ -383,13 +383,32 @@ var data = {
 }
 // main
 $('xxx').click()
-// 未完..
 })
-
 ```
 
+但不管如何, 我们都无法正确的取出data的值, 并回显到js中, 这时候我们想到了jekyll的做法
 
-可惜这个太复杂了
+```
+---
+title: xxx
+layout: post
+---
+
+正文: {{page.title}}
+```
+
+数据通过在前面的yaml预先声明, 这样还可以定义小型validator
+
+```yaml
+width: 600px
+// 相当于直接定义value
+height:
+  value: 300px
+  min: 100px
+  max: 500px
+```
+
+恩, 这个实在是分分钟就解决了, 现在一切都貌似准备好了, 就剩明天真正渲染一个页面了!
 
 ### 总结
 
