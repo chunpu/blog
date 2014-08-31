@@ -13,6 +13,10 @@ nav ul, ul.posts {
   margin-left: 0;
 }
 
+.post, .posts {
+  margin-top: 30px;
+}
+
 a {
   color: #777;
 }
@@ -139,7 +143,7 @@ article code, article a {
 }
 
 article p {
-  margin: 15px 0;
+  margin-bottom: 30px;
 }
 
 code {
