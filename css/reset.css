@@ -24,26 +24,12 @@ a {
 /* reset */
 
 body {
-  color: #666;
-  font-family: 'Droid Serif', Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial;
+  color: #555;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, "Microsoft JhengHei", "Microsoft YaHei", Tohoma, Arial;
   font-size: 19px;
   padding: 15px 15px 0;
   line-height: 1.6em;
   background: #fefefe;
-}
-
-/* font test */
-@font-face {
-  font-family: 'Droid Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Droid Serif'), local('DroidSerif'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format('woff');
-}
-@font-face {
-  font-family: 'Droid Serif';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Droid Serif Bold'), local('DroidSerif-Bold'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v4/QQt14e8dY39u-eYBZmppwTqR_3kx9_hJXbbyU8S6IN0.woff) format('woff');
 }
 
 header, footer {
