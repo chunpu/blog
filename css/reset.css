@@ -85,10 +85,6 @@ hr {
   margin: 20px 0;
 }
 
-h1, h2, h3 {
-  text-align: center;
-}
-
 .resume h1, .resume h2, .resume h3 {
   text-align: left;
 }
@@ -107,11 +103,6 @@ h1, h2, h3 {
 
 h1, h2, h3, h4 {
   color: #444;
-  font-family: 宋体;
-}
-
-h4 {
-  color: #555;
 }
 
 h1 {
@@ -121,47 +112,14 @@ h1 {
 
 h2 {
   line-height: 50px;
+  margin-top: 80px;
 }
 
 h3 {
   line-height: 45px;
+  margin-top: 60px;
 }
 
-/* auto number */
-
-h1 {
-  counter-reset: big;
-}
-
-h2 {
-  counter-increment: big;
-  counter-reset: mid;
-}
-
-.post h2:before {
-  content: counter(big);
-}
-
-h3 {
-  counter-increment: mid;
-  counter-reset: small;
-}
-
-div.post h3:before {
-  content: counter(big)'.'counter(mid);
-}
-
-h4 {
-  counter-increment: small;
-}
-
-h4:before {
-  content: counter(big)'.'counter(mid)'.'counter(small);
-}
-
-h2:before, h3:before, h4:before {
-  padding-right: 10px;
-}
 
 .inner {
   width: 100%;
@@ -179,15 +137,7 @@ time {
 article code, article a {
   word-break: break-all;
 }
-/*
-article h3:before {
-  display: inline-block;
-  color: #777;
-  text-align: center;
-  content: '▪';
-  margin: 0 2px 0 7px;
-}
-*/
+
 article p {
   margin: 15px 0;
 }
@@ -219,8 +169,8 @@ pre {
 }
 
 p code {
-  background: #e7e7e7;
   padding: 0 2px;
+  font-size: .9em;
 }
 
 blockquote {
@@ -264,5 +214,3 @@ table {
 tr:nth-child(2n) {
   background: #f8f8f8;
 }
-
-

@@ -1,7 +1,6 @@
 name: FengTong's Blog
 markdown: redcarpet
-pygments: true
-auto: true
+highlighter: pygments
 gems:
   - jemoji
 redcarpet:
