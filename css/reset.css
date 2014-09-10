@@ -146,6 +146,10 @@ article p {
   margin-bottom: 30px;
 }
 
+article img {
+  max-width: 100%;
+}
+
 code {
   font-family: Consolas, monospace, 微软雅黑;
 }

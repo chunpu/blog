@@ -7,3 +7,4 @@ redcarpet:
   extensions:
     - tables
     - autolink
+static: http://fimg.qiniudn.com/
