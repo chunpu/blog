@@ -150,6 +150,10 @@ article img {
   max-width: 100%;
 }
 
+article pre, article ul {
+  margin-bottom: 30px;
+}
+
 code {
   font-family: Consolas, monospace, 微软雅黑;
 }
