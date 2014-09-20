@@ -84,7 +84,7 @@ function makeArray(arr, ret) {
 也是非常实用, 在记录一个常用的类型判断方法
 
 ```javascript
-;{}.toString.call(arg)
+var type = {}.toString.call(arg)
 ```
 
 可以检测出 `Boolean Number String Function Array Date RegExp Object Error` 这么多类型
