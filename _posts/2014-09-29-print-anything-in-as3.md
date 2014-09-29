@@ -55,14 +55,16 @@ public function dumpObject(obj:*):* {
         constructor: className
     }
     var xml:XML = describeType(obj)
-    var keys:Array = ['accessor', 'method']
+    var keys:Array = ['variable', 'accessor', 'method']
     for (var j:int = 0; j < keys.length; j++) {
         var xmllist:XMLList = xml[keys[j]]
         for (var i:int = 0, item:XML; item = xmllist[i++];) {
             var name:String = item.@name.toString()
             try {
                 ret[name] = dumpObject(netStream[name])
-            } catch (e:Error) {}
+            } catch (e:Error) {
+                ret[name] = '<Error: ' + keys[j] + '>'
+            }
         }
     }
     return ret
