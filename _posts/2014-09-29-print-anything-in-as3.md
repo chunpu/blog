@@ -5,7 +5,18 @@ tags:
 - as3
 ---
 
-as3 如果是用 trace 来调试那必然是痛苦不堪, 下面是我自己常用的打印函数, 有多实用就不谈了
+as3 如果是用 trace 来调试那必然是痛苦不堪, 下面是我自己常用的打印函数, 基本原理就是利用浏览器的 console, 但是连内置对象也可以输出, 有多实用就不谈了
+
+先看效果, 使用方法是
+
+```as3
+log(arg1, arg2, ...)
+
+// 打印内置对象 demo
+log(ExternalInterface, netStream)
+```
+
+![as-print]({{site.static}}as3/debug.png)
 
 用到的内置库是
 
