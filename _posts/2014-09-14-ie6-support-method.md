@@ -115,3 +115,24 @@ for (var i = 0, x; x = string[i++];) {
 document.getElementById('pre').innerHTML = pre
 ```
 
+在 js html css 中, 低版本 IE 的坑 js 应该算最少的, 这里顺便再记录两个
+
+#### 1. `IE8-` 无法 `slice.call` 一个 dom 对象
+
+```javascript
+var els = document.body.getElementsByTagName('div')
+var slice = [].slice
+
+slice.call(els) // throw Error: Array.prototype.slice: 'this' 不是 JavaScript 对象
+```
+
+`slice.call` 在 arrayLike => array 转换上极其常用, call 的对象甚至可以是 null, 但惟独不能是 dom 对象(IE8-)
+
+#### 2. `IE7-` 无法使用 `string[x]` 来取值
+
+```javascript
+var str = 'string'
+assert('s' == str[0]) // error, str[0] 为 undefined
+```
+
+`IE7-` 只能用 `charAt` 来取, 这点即便是老手也会经常忘记, 因为 `str[index]` 写的太舒畅了
