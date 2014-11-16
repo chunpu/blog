@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 从零单排C语言-01
+title: 从零单排C语言-01-预备篇
 tags:
-- c
+- learn-c
 ---
 
 突发奇想, 决定重新学习C语言, 虽然已经毕业一年多, 现在只会 `printf`, 但浪子回头, 终究不晚
