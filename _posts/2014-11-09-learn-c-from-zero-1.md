@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 从零单排C语言-01-预备篇
+title: 从零单排C语言-01
 tags:
 - learn-c
 ---
