@@ -1,6 +1,4 @@
 blog
 ====
 
-#<http://blog.biedalian.com>
-
-personal blog render by jekyll
+<https://github.com/chunpu/blog/issues>
